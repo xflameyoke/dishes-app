@@ -39,17 +39,18 @@ const DishesForm = () => {
     setSoupSpiciness(e.target.value);
   };
 
+  const formValues = {
+    id: '1',
+    name: name,
+    time: time,
+    type: type,
+    pizza_slices: pizza_slices,
+    diameter: diameter,
+    soup_spiceness: soup_spiciness,
+    sandwich_slices: sandwich_slices,
+  };
+
   const onFinish = () => {
-    const formValues = {
-      id: '1',
-      name: name,
-      time: time,
-      type: type,
-      pizza_slices: pizza_slices,
-      diameter: diameter,
-      soup_spiceness: soup_spiciness,
-      sandwich_slices: sandwich_slices,
-    };
     console.log(formValues);
     const url = 'https://frosty-wood-6558.getsandbox.com:443/dishes';
     fetch(url, {
@@ -137,7 +138,7 @@ const DishesForm = () => {
   return (
     <div className="dishes">
       <Form className="dishes__form" name="dishes" onFinish={onFinish}>
-        <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+        <Form.Item name="Name" label="Name" rules={[{ required: true }]}>
           <Input
             value={name}
             onChange={nameSetHandler}
@@ -145,13 +146,13 @@ const DishesForm = () => {
           />
         </Form.Item>
         <Form.Item
-          name="prepTime"
+          name="Preparation Time"
           label="Preparation time:"
           rules={[{ required: true }]}
         >
           <Input value={time} type="time" step="1" onChange={timeSetHandler} />
         </Form.Item>
-        <Form.Item name="type" label="Type" rules={[{ required: true }]}>
+        <Form.Item name="Type" label="Type" rules={[{ required: true }]}>
           <Select
             showSearch
             allowClear
