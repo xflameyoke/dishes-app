@@ -39,23 +39,20 @@ const DishesForm = () => {
     setSoupSpiciness(e.target.value);
   };
 
-  const formValues = {
-    id: '1',
-    name: name,
-    time: time,
-    type: type,
-    pizza_slices: pizza_slices,
-    diameter: diameter,
-    soup_spiceness: soup_spiciness,
-    sandwich_slices: sandwich_slices,
-  };
-
   const onFinish = () => {
-    console.log(formValues);
     const url = 'https://frosty-wood-6558.getsandbox.com:443/dishes';
     fetch(url, {
       method: 'POST',
-      body: JSON.stringify({ formValues }),
+      body: JSON.stringify({
+        name: name,
+        preparation_time: time,
+        id: '1',
+        type: type,
+        no_of_slices: parseFloat(pizza_slices),
+        diameter: parseFloat(diameter),
+        spiciness_scale: parseFloat(soup_spiciness),
+        slices_of_bread: parseFloat(sandwich_slices),
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
