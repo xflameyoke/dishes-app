@@ -1,0 +1,16 @@
+.dishes {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dishes__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dishes__form label, button {
+    margin: 10px;
+}
